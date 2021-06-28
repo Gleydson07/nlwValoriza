@@ -1,6 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
 import 'express-async-errors'
 import "reflect-metadata";
+import cors from 'cors'
 
 import { router } from "./routes";
 
@@ -9,6 +10,9 @@ import "./database";
 const app = express();
 
 //Middlewares
+app.use(cors(
+    // {origin: "*"}
+))
 app.use(express.json());
 app.use(router);
 //Error
